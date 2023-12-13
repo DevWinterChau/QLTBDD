@@ -1,0 +1,8 @@
+C:\Users\HP\Desktop\GIT_QLDAPM\QLTBDD\QLTBD_DAPM\obj\Debug\net7.0\QLTBD_DAPM.csproj.AssemblyReference.cache
+C:\Users\HP\Desktop\GIT_QLDAPM\QLTBDD\QLTBD_DAPM\obj\Debug\net7.0\QLTBD_DAPM.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\Desktop\GIT_QLDAPM\QLTBDD\QLTBD_DAPM\obj\Debug\net7.0\QLTBD_DAPM.AssemblyInfoInputs.cache
+C:\Users\HP\Desktop\GIT_QLDAPM\QLTBDD\QLTBD_DAPM\obj\Debug\net7.0\QLTBD_DAPM.AssemblyInfo.cs
+C:\Users\HP\Desktop\GIT_QLDAPM\QLTBDD\QLTBD_DAPM\obj\Debug\net7.0\QLTBD_DAPM.csproj.CoreCompileInputs.cache
+C:\Users\HP\Desktop\GIT_QLDAPM\QLTBDD\QLTBD_DAPM\obj\Debug\net7.0\QLTBD_DAPM.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\HP\Desktop\GIT_QLDAPM\QLTBDD\QLTBD_DAPM\obj\Debug\net7.0\QLTBD_DAPM.RazorAssemblyInfo.cache
+C:\Users\HP\Desktop\GIT_QLDAPM\QLTBDD\QLTBD_DAPM\obj\Debug\net7.0\QLTBD_DAPM.RazorAssemblyInfo.cs

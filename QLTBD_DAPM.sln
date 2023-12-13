@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QLTBD_DAPM", "QLTBD_DAPM\QLTBD_DAPM.csproj", "{AA722B2E-71E4-48D6-8884-69D210212DA8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AA722B2E-71E4-48D6-8884-69D210212DA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA722B2E-71E4-48D6-8884-69D210212DA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA722B2E-71E4-48D6-8884-69D210212DA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA722B2E-71E4-48D6-8884-69D210212DA8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1AB2877A-9529-4C8A-91DD-CE771369BE31}
+	EndGlobalSection
+EndGlobal
