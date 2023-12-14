@@ -1,4 +1,4 @@
-﻿@model ITSHop.Models.DatHang
+﻿@model ITShop.Models.DatHang
 
 @{
     ViewData["Title"] = "Thêm đặt hàng";
@@ -13,6 +13,7 @@
                 <select asp-for="NguoiDungID" class ="form-control" asp-items="ViewBag.NguoiDungID">
                     <option value="">-- Chọn --</option>v
                 </select>
+                <span asp-validation-for="NguoiDungID" class="text-danger"></span>
             </div>
             
             <div class="mb-3">
@@ -20,6 +21,7 @@
                 <select asp-for="TinhTrangID" class ="form-control" asp-items="ViewBag.TinhTrangID">
                     <option value="">-- Chọn --</option>
                 </select>
+                <span asp-validation-for="TinhTrangID" class="text-danger"></span>
             </div>
             
             <div class="mb-3">

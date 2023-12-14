@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ITSHop.Models.DatHang>
+﻿@model IEnumerable<ITShop.Models.DatHang>
 
 @{
     ViewData["Title"] = "Đặt hàng";
@@ -12,7 +12,7 @@
             <thead>
                 <tr>
                     <th width="5%">#</th>
-                    <th>@Html.DisplayNameFor(model => model.NguoiDung)</th>
+                    <th>@Html.DisplayNameFor(model => model.NguoiDung.HoVaTen)</th>
                     <th>@Html.DisplayNameFor(model => model.DienThoaiGiaoHang)</th>
                     <th>@Html.DisplayNameFor(model => model.DiaChiGiaoHang)</th>
                     <th>@Html.DisplayNameFor(model => model.NgayDatHang)</th>
