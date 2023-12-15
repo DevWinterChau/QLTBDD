@@ -2,10 +2,10 @@
 
 #nullable disable
 
-namespace ITSHop.Migrations
+namespace ITShop.Migrations
 {
     /// <inheritdoc />
-    public partial class CREATEDB : Migration
+    public partial class initDB : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
