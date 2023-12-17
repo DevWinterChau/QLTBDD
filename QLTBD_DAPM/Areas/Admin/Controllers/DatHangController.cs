@@ -5,18 +5,19 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using ITShop.Models;
+using DongHoShop.Models;
 using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
-namespace ITShop.Areas.Admin.Controllers
+namespace DongHoShop.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin")]
-    public class DatHangController : Controller
+	[Authorize(Roles = "Admin")]
+	public class DatHangController : Controller
     {
-        private readonly ITShopDbContext _context;
+        private readonly DongHoShopContext _context;
 
-        public DatHangController(ITShopDbContext context)
+        public DatHangController(DongHoShopContext context)
         {
             _context = context;
         }
@@ -24,8 +25,8 @@ namespace ITShop.Areas.Admin.Controllers
         // GET: DatHang
         public async Task<IActionResult> Index()
         {
-            var iTShopDbContext = _context.DatHang.Include(d => d.NguoiDung).Include(d => d.TinhTrang);
-            return View(await iTShopDbContext.ToListAsync());
+            var dongHoShopContext = _context.DatHang.Include(d => d.NguoiDung).Include(d => d.TinhTrang);
+            return View(await dongHoShopContext.ToListAsync());
         }
 
         // GET: DatHang/Details/5
@@ -51,7 +52,7 @@ namespace ITShop.Areas.Admin.Controllers
         // GET: DatHang/Create
         public IActionResult Create()
         {
-            ViewData["NguoiDungID"] = new SelectList(_context.NguoiDung, "ID", "HoVaTen");
+            ViewData["NguoiDungID"] = new SelectList(_context.NguoiDung, "ID", "Email");
             ViewData["TinhTrangID"] = new SelectList(_context.KhachHang, "ID", "MoTa");
             return View();
         }
@@ -69,7 +70,7 @@ namespace ITShop.Areas.Admin.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["NguoiDungID"] = new SelectList(_context.NguoiDung, "ID", "HoVaTen", datHang.NguoiDungID);
+            ViewData["NguoiDungID"] = new SelectList(_context.NguoiDung, "ID", "Email", datHang.NguoiDungID);
             ViewData["TinhTrangID"] = new SelectList(_context.KhachHang, "ID", "MoTa", datHang.TinhTrangID);
             return View(datHang);
         }
@@ -87,7 +88,7 @@ namespace ITShop.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            ViewData["NguoiDungID"] = new SelectList(_context.NguoiDung, "ID", "HoVaTen", datHang.NguoiDungID);
+            ViewData["NguoiDungID"] = new SelectList(_context.NguoiDung, "ID", "Email", datHang.NguoiDungID);
             ViewData["TinhTrangID"] = new SelectList(_context.KhachHang, "ID", "MoTa", datHang.TinhTrangID);
             return View(datHang);
         }
@@ -124,7 +125,7 @@ namespace ITShop.Areas.Admin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["NguoiDungID"] = new SelectList(_context.NguoiDung, "ID", "HoVaTen", datHang.NguoiDungID);
+            ViewData["NguoiDungID"] = new SelectList(_context.NguoiDung, "ID", "Email", datHang.NguoiDungID);
             ViewData["TinhTrangID"] = new SelectList(_context.KhachHang, "ID", "MoTa", datHang.TinhTrangID);
             return View(datHang);
         }
@@ -156,7 +157,7 @@ namespace ITShop.Areas.Admin.Controllers
         {
             if (_context.DatHang == null)
             {
-                return Problem("Entity set 'ITShopDbContext.DatHang'  is null.");
+                return Problem("Entity set 'DongHoShopContext.DatHang'  is null.");
             }
             var datHang = await _context.DatHang.FindAsync(id);
             if (datHang != null)

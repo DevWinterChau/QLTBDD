@@ -10,90 +10,90 @@ using Microsoft.AspNetCore.Authorization;
 using System.Data;
 
 namespace DongHoShop.Areas.Admin.Controllers
-{ 
-    [Area("Admin")]
-    [Authorize(Roles = "Admin")]
-public class HangSanXuatController : Controller
+{
+	[Area("Admin")]
+	[Authorize(Roles = "Admin")]
+    public class TinhTrangController : Controller
     {
         private readonly DongHoShopContext _context;
 
-        public HangSanXuatController(DongHoShopContext context)
+        public TinhTrangController(DongHoShopContext context)
         {
             _context = context;
         }
 
-        // GET: HangSanXuat
+        // GET: TinhTrang
         public async Task<IActionResult> Index()
         {
-            return _context.HangSanXuat != null ?
-                        View(await _context.HangSanXuat.ToListAsync()) :
-                        Problem("Entity set 'DongHoShopContext.HangSanXuat'  is null.");
+            return _context.KhachHang != null ?
+                        View(await _context.KhachHang.ToListAsync()) :
+                        Problem("Entity set 'DongHoShopContext.KhachHang'  is null.");
         }
 
-        // GET: HangSanXuat/Details/5
+        // GET: TinhTrang/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.HangSanXuat == null)
+            if (id == null || _context.KhachHang == null)
             {
                 return NotFound();
             }
 
-            var hangSanXuat = await _context.HangSanXuat
+            var tinhTrang = await _context.KhachHang
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (hangSanXuat == null)
+            if (tinhTrang == null)
             {
                 return NotFound();
             }
 
-            return View(hangSanXuat);
+            return View(tinhTrang);
         }
 
-        // GET: HangSanXuat/Create
+        // GET: TinhTrang/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: HangSanXuat/Create
+        // POST: TinhTrang/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,TenHangSanXuat")] HangSanXuat hangSanXuat)
+        public async Task<IActionResult> Create([Bind("ID,MoTa")] TinhTrang tinhTrang)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(hangSanXuat);
+                _context.Add(tinhTrang);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(hangSanXuat);
+            return View(tinhTrang);
         }
 
-        // GET: HangSanXuat/Edit/5
+        // GET: TinhTrang/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.HangSanXuat == null)
+            if (id == null || _context.KhachHang == null)
             {
                 return NotFound();
             }
 
-            var hangSanXuat = await _context.HangSanXuat.FindAsync(id);
-            if (hangSanXuat == null)
+            var tinhTrang = await _context.KhachHang.FindAsync(id);
+            if (tinhTrang == null)
             {
                 return NotFound();
             }
-            return View(hangSanXuat);
+            return View(tinhTrang);
         }
 
-        // POST: HangSanXuat/Edit/5
+        // POST: TinhTrang/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,TenHangSanXuat")] HangSanXuat hangSanXuat)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,MoTa")] TinhTrang tinhTrang)
         {
-            if (id != hangSanXuat.ID)
+            if (id != tinhTrang.ID)
             {
                 return NotFound();
             }
@@ -102,12 +102,12 @@ public class HangSanXuatController : Controller
             {
                 try
                 {
-                    _context.Update(hangSanXuat);
+                    _context.Update(tinhTrang);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!HangSanXuatExists(hangSanXuat.ID))
+                    if (!TinhTrangExists(tinhTrang.ID))
                     {
                         return NotFound();
                     }
@@ -118,49 +118,49 @@ public class HangSanXuatController : Controller
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(hangSanXuat);
+            return View(tinhTrang);
         }
 
-        // GET: HangSanXuat/Delete/5
+        // GET: TinhTrang/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.HangSanXuat == null)
+            if (id == null || _context.KhachHang == null)
             {
                 return NotFound();
             }
 
-            var hangSanXuat = await _context.HangSanXuat
+            var tinhTrang = await _context.KhachHang
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (hangSanXuat == null)
+            if (tinhTrang == null)
             {
                 return NotFound();
             }
 
-            return View(hangSanXuat);
+            return View(tinhTrang);
         }
 
-        // POST: HangSanXuat/Delete/5
+        // POST: TinhTrang/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.HangSanXuat == null)
+            if (_context.KhachHang == null)
             {
-                return Problem("Entity set 'DongHoShopContext.HangSanXuat'  is null.");
+                return Problem("Entity set 'DongHoShopContext.KhachHang'  is null.");
             }
-            var hangSanXuat = await _context.HangSanXuat.FindAsync(id);
-            if (hangSanXuat != null)
+            var tinhTrang = await _context.KhachHang.FindAsync(id);
+            if (tinhTrang != null)
             {
-                _context.HangSanXuat.Remove(hangSanXuat);
+                _context.KhachHang.Remove(tinhTrang);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool HangSanXuatExists(int id)
+        private bool TinhTrangExists(int id)
         {
-            return (_context.HangSanXuat?.Any(e => e.ID == id)).GetValueOrDefault();
+            return (_context.KhachHang?.Any(e => e.ID == id)).GetValueOrDefault();
         }
     }
 }

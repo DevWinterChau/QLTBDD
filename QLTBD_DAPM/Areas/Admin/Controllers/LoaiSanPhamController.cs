@@ -10,90 +10,90 @@ using Microsoft.AspNetCore.Authorization;
 using System.Data;
 
 namespace DongHoShop.Areas.Admin.Controllers
-{ 
-    [Area("Admin")]
-    [Authorize(Roles = "Admin")]
-public class HangSanXuatController : Controller
+{
+	[Area("Admin")]
+	[Authorize(Roles = "Admin")]
+	public class LoaiSanPhamController : Controller
     {
         private readonly DongHoShopContext _context;
 
-        public HangSanXuatController(DongHoShopContext context)
+        public LoaiSanPhamController(DongHoShopContext context)
         {
             _context = context;
         }
 
-        // GET: HangSanXuat
+        // GET: LoaiSanPham
         public async Task<IActionResult> Index()
         {
-            return _context.HangSanXuat != null ?
-                        View(await _context.HangSanXuat.ToListAsync()) :
-                        Problem("Entity set 'DongHoShopContext.HangSanXuat'  is null.");
+            return _context.LoaiSanPham != null ?
+                        View(await _context.LoaiSanPham.ToListAsync()) :
+                        Problem("Entity set 'DongHoShopContext.LoaiSanPham'  is null.");
         }
 
-        // GET: HangSanXuat/Details/5
+        // GET: LoaiSanPham/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.HangSanXuat == null)
+            if (id == null || _context.LoaiSanPham == null)
             {
                 return NotFound();
             }
 
-            var hangSanXuat = await _context.HangSanXuat
+            var loaiSanPham = await _context.LoaiSanPham
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (hangSanXuat == null)
+            if (loaiSanPham == null)
             {
                 return NotFound();
             }
 
-            return View(hangSanXuat);
+            return View(loaiSanPham);
         }
 
-        // GET: HangSanXuat/Create
+        // GET: LoaiSanPham/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: HangSanXuat/Create
+        // POST: LoaiSanPham/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,TenHangSanXuat")] HangSanXuat hangSanXuat)
+        public async Task<IActionResult> Create([Bind("ID,TenLoai")] LoaiSanPham loaiSanPham)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(hangSanXuat);
+                _context.Add(loaiSanPham);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(hangSanXuat);
+            return View(loaiSanPham);
         }
 
-        // GET: HangSanXuat/Edit/5
+        // GET: LoaiSanPham/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.HangSanXuat == null)
+            if (id == null || _context.LoaiSanPham == null)
             {
                 return NotFound();
             }
 
-            var hangSanXuat = await _context.HangSanXuat.FindAsync(id);
-            if (hangSanXuat == null)
+            var loaiSanPham = await _context.LoaiSanPham.FindAsync(id);
+            if (loaiSanPham == null)
             {
                 return NotFound();
             }
-            return View(hangSanXuat);
+            return View(loaiSanPham);
         }
 
-        // POST: HangSanXuat/Edit/5
+        // POST: LoaiSanPham/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,TenHangSanXuat")] HangSanXuat hangSanXuat)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,TenLoai")] LoaiSanPham loaiSanPham)
         {
-            if (id != hangSanXuat.ID)
+            if (id != loaiSanPham.ID)
             {
                 return NotFound();
             }
@@ -102,12 +102,12 @@ public class HangSanXuatController : Controller
             {
                 try
                 {
-                    _context.Update(hangSanXuat);
+                    _context.Update(loaiSanPham);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!HangSanXuatExists(hangSanXuat.ID))
+                    if (!LoaiSanPhamExists(loaiSanPham.ID))
                     {
                         return NotFound();
                     }
@@ -118,49 +118,49 @@ public class HangSanXuatController : Controller
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(hangSanXuat);
+            return View(loaiSanPham);
         }
 
-        // GET: HangSanXuat/Delete/5
+        // GET: LoaiSanPham/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.HangSanXuat == null)
+            if (id == null || _context.LoaiSanPham == null)
             {
                 return NotFound();
             }
 
-            var hangSanXuat = await _context.HangSanXuat
+            var loaiSanPham = await _context.LoaiSanPham
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (hangSanXuat == null)
+            if (loaiSanPham == null)
             {
                 return NotFound();
             }
 
-            return View(hangSanXuat);
+            return View(loaiSanPham);
         }
 
-        // POST: HangSanXuat/Delete/5
+        // POST: LoaiSanPham/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.HangSanXuat == null)
+            if (_context.LoaiSanPham == null)
             {
-                return Problem("Entity set 'DongHoShopContext.HangSanXuat'  is null.");
+                return Problem("Entity set 'DongHoShopContext.LoaiSanPham'  is null.");
             }
-            var hangSanXuat = await _context.HangSanXuat.FindAsync(id);
-            if (hangSanXuat != null)
+            var loaiSanPham = await _context.LoaiSanPham.FindAsync(id);
+            if (loaiSanPham != null)
             {
-                _context.HangSanXuat.Remove(hangSanXuat);
+                _context.LoaiSanPham.Remove(loaiSanPham);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool HangSanXuatExists(int id)
+        private bool LoaiSanPhamExists(int id)
         {
-            return (_context.HangSanXuat?.Any(e => e.ID == id)).GetValueOrDefault();
+            return (_context.LoaiSanPham?.Any(e => e.ID == id)).GetValueOrDefault();
         }
     }
 }
